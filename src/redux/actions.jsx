@@ -1,9 +1,3 @@
-/* const increaseAction = { type: 'increase' }
-const decreseAction = { type: 'decrese' }
-
-export { increaseAction, decreseAction }
- */
-
 export const increaseAction = () => ({
     type: 'increase'
 })

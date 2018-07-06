@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-const counter = (store = { count: 0 }, action) => {
-    const count = store.count
+const counter = (state = { count: 0 }, action) => {
+    const count = state.count
 
     switch (action.type) {
         case 'increase':
@@ -9,25 +9,24 @@ const counter = (store = { count: 0 }, action) => {
         case 'decrese':
             return { count: count - 1, }
         default:
-            return store
+            return state
     }
 }
 
-const addToDoList = (store = { ToDoList: [] }, action) => {
+const toDoList = (state = [], action) => {
     switch (action.type) {
         case 'ADD_TODO':
-            store.ToDoList = [
-                ...store.ToDoList,
+            return [
+                ...state,
                 {
                     id: 0,
                     text: action.text,
                     completed: false
                 }
             ]
-            return store;
 
         default:
-            return store
+            return state
     }
 }
 
@@ -35,5 +34,5 @@ const addToDoList = (store = { ToDoList: [] }, action) => {
 
 export default combineReducers({
     counter,
-    addToDoList
+    toDoList
 })

@@ -7,7 +7,7 @@ class ToDoList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: "123"
+            text: ""
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
