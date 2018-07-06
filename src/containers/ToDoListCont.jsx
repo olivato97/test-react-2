@@ -1,11 +1,11 @@
 import { connect } from 'react-redux'
-import TodoList from '../components/TodoList'
+import TodoList from '../components/TodoListComp'
 import { addToDoList } from '../redux/actions'
 
 const mapStateToProps = (store) => {
 debugger
   return {
-    List: store.addToDoList.ToDoList
+    ToDoList: store.addToDoList.ToDoList
   }
 }
 
