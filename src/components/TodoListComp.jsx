@@ -22,7 +22,6 @@ class ToDoList extends Component {
 
     render() {
         const { toDoList } = this.props;
-        debugger
         var list
         if (toDoList) {
 

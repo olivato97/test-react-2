@@ -13,13 +13,13 @@ class LogInComp extends Component {
     };
 
     handleClickTrue(){
-        debugger
+        
         const { ToggleLogIn } = this.props
         ToggleLogIn("ospite",true)
 
     }
     handleClickFalse(){
-        debugger
+        
         const { ToggleLogIn } = this.props
         ToggleLogIn("ospite",false)
 
@@ -39,40 +39,11 @@ class LogInComp extends Component {
 
 
 }
-
-
-class LogInStatusComp extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            tipo: "",
-            logIn: false
-        }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleClick = this.handleClick.bind(this);
-    };
-    LogInStatus(){
-        const { tipo, logIn } = this.props
-this.setState({tipo: tipo, logIn:logIn});
-    }
-    render() {
-        return (
-            <div>
-                <span>{this.state.tipo}</span>
-                <span>{this.state.logIn}</span>
-
-            </div>
-        )
-    }
-
-
-
-
-}
 LogInComp.propTypes = {
     ToggleLogIn: PropTypes.func.isRequired,
     // onDecresedClick: PropTypes.func.isRequired
 }
 
 
-export { LogInComp, LogInStatusComp };
+
+export { LogInComp };

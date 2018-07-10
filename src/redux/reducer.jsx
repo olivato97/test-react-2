@@ -32,7 +32,7 @@ const toDoList = (state = [], action) => {
 }
 
 const LogIn = (state = {tipo: "ospite", logIn: false}, action) => {
-    debugger
+    
             switch(action.tipo){
             case "ospite":
             return {

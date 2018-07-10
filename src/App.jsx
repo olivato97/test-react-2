@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import CounterCont from './containers/CounterCont'
 import ToDoListCont from './containers/ToDoListCont'
-import {LogInCont2,LogInStatusComp2} from './containers/LogInCont'
+import LogInCont  from './containers/LogInCont'
+import LogInStatusCont  from './containers/LogInStatusCont'
 
 class App extends Component {
   render() {
@@ -13,9 +14,9 @@ class App extends Component {
         <hr />
         <ToDoListCont />
         <hr />
-        <LogInStatusComp2 />
+        <LogInStatusCont />
         <hr />
-        <LogInCont2 />
+        <LogInCont />
       </div>
     );
   }
