@@ -4,7 +4,7 @@ import { addToDoList } from '../redux/actions'
 
 const mapStateToProps = (state) => {
   return {
-    ToDoList: state.ToDoList
+    toDoList: state.toDoList
   }
 }
 

@@ -21,9 +21,15 @@ class ToDoList extends Component {
     }
 
     render() {
-        const { List } = this.props;
+        const { toDoList } = this.props;
+        debugger
+        var list
+        if (toDoList) {
 
-console.log(List)
+             list = toDoList.map(item =>
+                <li key={item.id}>{item.text}</li>
+            )
+        }
         return (
             <div>
                 <input type='text'
@@ -31,7 +37,7 @@ console.log(List)
                     onChange={this.handleChange} />
                 <button onClick={this.handleClick}>Inserisci</button>
                 <ul>
-                    <li>{List}</li>
+                    {list}
                 </ul>
             </div>
         )
@@ -39,7 +45,7 @@ console.log(List)
 }
 
 ToDoList.propTypes = {
-    ToDoList: PropTypes.array.isRequired,
+    toDoList: PropTypes.array.isRequired,
     addToDoList: PropTypes.func.isRequired,
     // onDecresedClick: PropTypes.func.isRequired
 }

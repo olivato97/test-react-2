@@ -13,13 +13,14 @@ const counter = (state = { count: 0 }, action) => {
     }
 }
 
+var ID_toDoList = 0
 const toDoList = (state = [], action) => {
     switch (action.type) {
         case 'ADD_TODO':
             return [
                 ...state,
                 {
-                    id: 0,
+                    id: ID_toDoList++,
                     text: action.text,
                     completed: false
                 }
@@ -30,9 +31,29 @@ const toDoList = (state = [], action) => {
     }
 }
 
+const LogIn = (state = {tipo: "ospite", logIn: false}, action) => {
+    debugger
+            switch(action.tipo){
+            case "ospite":
+            return {
+                tipo: "ospite",
+                logIn : action.logIn
+            }
+            case "Utente":
+            return{
+                tipo: "Utente",
+                logIn: action.logIn
+
+            }
+            default :
+            return state
+
+        }
+}
 // export default counter;
 
 export default combineReducers({
     counter,
-    toDoList
+    toDoList,
+    LogIn
 })
