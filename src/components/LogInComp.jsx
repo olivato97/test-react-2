@@ -12,19 +12,19 @@ class LogInComp extends Component {
         this.handleClickFalse = this.handleClickFalse.bind(this);
     };
 
-    handleClickTrue(){
-        
+    handleClickTrue() {
+
         const { ToggleLogIn } = this.props
-        ToggleLogIn("ospite",true)
+        ToggleLogIn("ospite", true)
 
     }
-    handleClickFalse(){
-        
+    handleClickFalse() {
+
         const { ToggleLogIn } = this.props
-        ToggleLogIn("ospite",false)
+        ToggleLogIn("ospite", false)
 
     }
-   
+
 
     render() {
         return (

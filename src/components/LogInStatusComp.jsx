@@ -4,25 +4,53 @@ class LogInStatusComp extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tipo: "ospite",
+            tipo: "utente",
             logIn: false
         }
-        this.LogInStatus = this.LogInStatus.bind(this);
+        this.LogInSetStatus = this.LogInSetStatus.bind(this);
+        // this.LogInStatus = this.LogInStatus.bind(this);
     };
-    LogInStatus() {
+    LogInSetStatus() {
         const { tipo, logIn } = this.props
         this.setState({ tipo: tipo, logIn: logIn });
-    }
-    render() {
-        debugger
-        if(this.state.tipo !="" || this.state.logIn != null){
-            this.LogInStatus
 
+      
+    }
+
+    render() {
+        const LogInStatus = () => {
+            const { tipo, logIn } = this.props
+            if (logIn=== true) {
+                this.setState({ tipo: tipo, logIn: logIn });
+            }
+            if (this.state.tipo !== "" || this.state.logIn !== null) {
+                return (<span > {this.state.tipo} </span>)
+
+            }
         }
+        this.timerID = setInterval(
+            () => this.LogInSetStatus(),
+            2000
+          );
+        const LogInYN = () => {
+            var loginYN = "";
+            
+            if (this.state.logIn === true) {
+                loginYN = "logIn"
+            } else {
+                loginYN = "logOddddff"
+            }
+            return (<span>{loginYN} {this.state.tipo}</span>
+            )
+        }
+        const { tipo, logIn } = this.props
+debugger
+ 
         return (
             <div>
-                <span onstorage={this.LogInStatus} >{this.state.tipo}</span>
-                <span onstorage={this.LogInStatus} >{this.state.logIn? " logIn":" logOff" }</span>
+                <LogInStatus />
+                <LogInYN />
+
 
             </div>
         )
