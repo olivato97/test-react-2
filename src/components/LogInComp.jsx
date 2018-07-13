@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
+import { Button, Form, Grid } from 'semantic-ui-react'
+
+
 
 class LogInComp extends Component {
     constructor(props) {
@@ -22,10 +25,27 @@ class LogInComp extends Component {
 
     render() {
         return (
-            <div>
-                <button onClick={this.handleClickTrue}>LogIn</button>
-                <button onClick={this.handleClickFalse}>LogOut</button>
-            </div>
+
+            <Grid celled centered>
+                <Grid.Row columns={1}>
+                    <Grid.Column width={10}>
+                        <Form onSubmit={this.handleSubmit} true={this.isLoginIn}>
+                            <Form.Field>
+                                <label>Username</label>
+                                <input placeholder='Username' />
+                            </Form.Field>
+                            <Form.Field >
+                                <label>Password</label>
+                                <input placeholder='Password'  />
+                            </Form.Field>
+                            <Button onClick={this.handleClickTrue}>LogIn</Button>
+                            <Button onClick={this.handleClickFalse}>LogOut</Button>
+                        </Form>
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
+
+
         )
     }
 
