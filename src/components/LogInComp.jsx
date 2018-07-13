@@ -22,6 +22,7 @@ class LogInComp extends Component {
     render() {
         return (
             <div>
+                
                 <button onClick={this.handleClickTrue}>LogIn</button>
                 <button onClick={this.handleClickFalse}>LogOut</button>
             </div>
