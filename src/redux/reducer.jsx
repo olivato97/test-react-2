@@ -31,24 +31,16 @@ const toDoList = (state = [], action) => {
     }
 }
 
-const LogIn = (state = {tipo: "ospite", logIn: false}, action) => {
-    
-            switch(action.tipo){
-            case "ospite":
+const LogIn = (state = { tipo: "ospite", logIn: false }, action) => {
+    switch (action.type) {
+        case "logIn":
             return {
-                tipo: "ospite",
-                logIn : action.logIn
+                tipo: action.text,
+                logIn: action.toggle
             }
-            case "Utente":
-            return{
-                tipo: "Utente",
-                logIn: action.logIn
-
-            }
-            default :
+        default:
             return state
-
-        }
+    }
 }
 // export default counter;
 

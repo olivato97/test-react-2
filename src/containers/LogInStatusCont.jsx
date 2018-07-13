@@ -4,8 +4,8 @@ import { LogInStatusComp } from '../components/LogInStatusComp'
 const mapStateToProps = (state) => {
     debugger
     return {
-        tipo: state.tipo,
-        logIn: state.logIn
+        tipo: state.LogIn.tipo,
+        logIn: state.LogIn.logIn
     }
 }
 

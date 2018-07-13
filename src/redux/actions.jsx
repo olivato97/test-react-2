@@ -11,10 +11,9 @@ export const addToDoList = (text) => ({
     text
 })
 
-export const ToggleLogIn = (text, toggle ) =>({
+export const ToggleLogIn = (text, toggle) =>({
     type: 'logIn',
-    tipo: text,
-    logIn: toggle
-
+    text,
+    toggle
 })
 

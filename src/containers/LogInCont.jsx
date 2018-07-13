@@ -9,7 +9,6 @@ const mapStateToProps = (state) => {
     }
 }
 const mapDispatchToProps = (dispatch) => {
-    
     return {
         ToggleLogIn: (text, toggle) => dispatch(ToggleLogIn(text, toggle)),
     }
