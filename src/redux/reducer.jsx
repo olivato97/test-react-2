@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-
+import uuidv1 from 'uuid/v1'
 const counter = (state = { count: 0 }, action) => {
     const count = state.count
 
@@ -13,31 +13,28 @@ const counter = (state = { count: 0 }, action) => {
     }
 }
 
-var ID_toDoList = 0
-const toDoList = (state = [], action) => {
-    switch (action.type) {
-        case 'ADD_TODO':
-            return [
-                ...state,
-                {
-                    id: ID_toDoList++,
-                    text: action.text,
-                    completed: false
-                }
-            ]
-
-        default:
-            return state
-    }
-}
-
-const LogIn = (state = { tipo: "ospite", logIn: false }, action) => {
+var IdMemberNew = uuidv1()
+const LogIn = (state = [{ IdMember: uuidv1(), tipo: "ospite", username: "", password: "", logIn: false }], action) => {
     switch (action.type) {
         case "logIn":
             return {
-                tipo: action.text,
-                logIn: action.toggle
-            }
+                    IdMember: IdMemberNew,
+                    username: action.username,
+                    password: action.password,
+                    tipo: action.tipo,
+                    logIn: false
+                }
+        case 'AddMember':
+            return [
+                ...state,
+                {
+                    IdMember: IdMemberNew,
+                    username: action.username,
+                    password: action.password,
+                    tipo: action.tipo,
+                    logIn: action.toggle
+                }
+            ]
         default:
             return state
     }
@@ -46,6 +43,5 @@ const LogIn = (state = { tipo: "ospite", logIn: false }, action) => {
 
 export default combineReducers({
     counter,
-    toDoList,
     LogIn
 })

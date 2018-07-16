@@ -7,21 +7,43 @@ import { Button, Form, Grid } from 'semantic-ui-react'
 class LogInComp extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            username: "",
+            password: ""
+        }
         this.handleClickTrue = this.handleClickTrue.bind(this);
         this.handleClickFalse = this.handleClickFalse.bind(this);
+        this.handleChangeUsername = this.handleChangeUsername.bind(this);
+        this.handleChangePassword = this.handleChangePassword.bind(this);
     };
 
     handleClickTrue() {
-        const { ToggleLogIn } = this.props
-        ToggleLogIn("ospite", true)
-
+        const { Member, ToggleLogIn } = this.props
+        debugger
+        var user = this.state.username
+        var pass = this.state.password
+        for (var i = 0; i < Member.length;i++) {
+            if (user === Member[i].username && pass === Member[i].password) {
+                ToggleLogIn("admin", true, this.state.username, this.state.password)
+            } else {
+                // ToggleLogIn("ospite", false, this.state.username, this.state.password)
+            }
+        }
     }
     handleClickFalse() {
         const { ToggleLogIn } = this.props
-        ToggleLogIn("ospite", false)
+        ToggleLogIn("ospite", false, this.state.username, this.state.password)
 
     }
 
+    handleChangeUsername(event) {
+        this.setState({ username: event.target.value });
+        console.log(this.state)
+    }
+    handleChangePassword(event) {
+        this.setState({ password: event.target.value });
+        console.log(this.state)
+    }
 
     render() {
         return (
@@ -32,11 +54,11 @@ class LogInComp extends Component {
                         <Form onSubmit={this.handleSubmit} true={this.isLoginIn}>
                             <Form.Field>
                                 <label>Username</label>
-                                <input placeholder='Username' />
+                                <input placeholder='Username' value={this.state.username} onChange={this.handleChangeUsername} />
                             </Form.Field>
                             <Form.Field >
                                 <label>Password</label>
-                                <input placeholder='Password'  />
+                                <input placeholder='Password' value={this.state.password} onChange={this.handleChangePassword} />
                             </Form.Field>
                             <Button onClick={this.handleClickTrue}>LogIn</Button>
                             <Button onClick={this.handleClickFalse}>LogOut</Button>

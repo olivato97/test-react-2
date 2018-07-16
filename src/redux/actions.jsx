@@ -6,14 +6,18 @@ export const decreseAction = () => ({
     type: 'decrese'
 })
 
-export const addToDoList = (text) => ({
-    type: 'ADD_TODO',
-    text
+export const addList = (tipo,username, password) => ({
+    type: 'AddMember',
+    tipo,
+    username,
+    password
 })
 
-export const ToggleLogIn = (text, toggle) =>({
+export const ToggleLogIn = (tipo, toggle, username, password) =>({
     type: 'logIn',
-    text,
-    toggle
+    tipo,
+    toggle,
+    password,
+    username
 })
 

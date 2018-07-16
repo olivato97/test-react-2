@@ -3,14 +3,18 @@ import { LogInComp } from '../components/LogInComp'
 import { ToggleLogIn } from '../redux/actions'
 
 const mapStateToProps = (state) => {
+    debugger
     return {
+        Member: state.LogIn,
         tipo: state.tipo,
-        logIn: state.logIn
+        logIn: state.logIn,
+        username: state.username,
+        password: state.password
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        ToggleLogIn: (text, toggle) => dispatch(ToggleLogIn(text, toggle)),
+        ToggleLogIn: (text, toggle, username, password) => dispatch(ToggleLogIn(text, toggle, username, password)),
     }
 }
 
