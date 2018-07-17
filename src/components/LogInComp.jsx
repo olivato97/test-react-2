@@ -19,14 +19,15 @@ class LogInComp extends Component {
 
     handleClickTrue() {
         const { Member, ToggleLogIn } = this.props
-        debugger
+
         var user = this.state.username
         var pass = this.state.password
-        for (var i = 0; i < Member.length;i++) {
+        for (var i = 0; i < Member.length; i++) {
             if (user === Member[i].username && pass === Member[i].password) {
-                ToggleLogIn("admin", true, this.state.username, this.state.password)
-            } else {
-                // ToggleLogIn("ospite", false, this.state.username, this.state.password)
+                Member[i].username = user;
+                Member[i].password =  pass;
+                Member[i].logIn =  true;
+                ToggleLogIn(Member)
             }
         }
     }

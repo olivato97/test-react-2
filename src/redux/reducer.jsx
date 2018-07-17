@@ -14,16 +14,10 @@ const counter = (state = { count: 0 }, action) => {
 }
 
 var IdMemberNew = uuidv1()
-const LogIn = (state = [{ IdMember: uuidv1(), tipo: "ospite", username: "", password: "", logIn: false }], action) => {
+const LogIn = (state = [{ IdMember: uuidv1(), tipo: "ospite", username: "ospite", password: "ospite", logIn: false }], action) => {
     switch (action.type) {
         case "logIn":
-            return {
-                    IdMember: IdMemberNew,
-                    username: action.username,
-                    password: action.password,
-                    tipo: action.tipo,
-                    logIn: false
-                }
+            return action.state
         case 'AddMember':
             return [
                 ...state,
@@ -32,7 +26,7 @@ const LogIn = (state = [{ IdMember: uuidv1(), tipo: "ospite", username: "", pass
                     username: action.username,
                     password: action.password,
                     tipo: action.tipo,
-                    logIn: action.toggle
+                    logIn: false
                 }
             ]
         default:

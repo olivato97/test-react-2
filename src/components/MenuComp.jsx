@@ -6,34 +6,41 @@ import ToDoListCont from '../containers/GestionePersonaleCont'
 import LogInCont from '../containers/LogInCont'
 import LogInStatusCont from '../containers/LogInStatusCont'
 
-export default class MenuComp extends Component {    
+export default class MenuComp extends Component {
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-    
+
     state = { activeItem: 'mainText' }
     render() {
 
-        const { tipo } = this.props
-        const AdminOnlyTab = function() {
-            if (tipo === "admin") {
+        const { Member } = this.props
+        const AdminOnlyTab = function () {
+            var check = false
+            for (var i = 0; i < Member.length; i++) {
+                if (Member[i].tipo === "admin" && Member[i].logIn === true) {
+                    check = true
+                }
+            }
+            if (check) {
                 return (
-                    <Menu.Item 
+                    <Menu.Item
                         name='AdminOnlyTab'
                         active={activeItem === 'LogInStatusCont'}
                         // onClick={this.handleItemClick}
                         as={Link} to='/LogInStatusCont'
                     />
                 )
+
             } else {
                 return (
                     <Menu.Item
-                    name='ospite'
+                        name='ospite'
                         active={activeItem === 'LogInStatusCont'}
                         // onClick={this.handleItemClick}
                         as={Link} to='/LogInStatusCont'
                     />
                 )
             }
-    
+
         }
         const { activeItem } = this.state
         return (
@@ -58,7 +65,7 @@ export default class MenuComp extends Component {
                             onClick={this.handleItemClick}
                             as={Link} to='/LogInStatusCont'
                         />
-                         <AdminOnlyTab/>
+                        <AdminOnlyTab />
 
                         <Menu.Menu position='right'>
                             <Menu.Item

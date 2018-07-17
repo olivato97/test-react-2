@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import GestionePersonaleComp from '../components/GestionePersonaleComp'
-import { addList } from '../redux/actions'
+import { addList,ToggleLogIn } from '../redux/actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -15,6 +15,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addList: (tipo, username, password) => dispatch(addList(tipo, username, password)),
+    ToggleLogIn: (state) => dispatch(ToggleLogIn(state))
   }
 }
 

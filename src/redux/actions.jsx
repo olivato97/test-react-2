@@ -13,11 +13,8 @@ export const addList = (tipo,username, password) => ({
     password
 })
 
-export const ToggleLogIn = (tipo, toggle, username, password) =>({
+export const ToggleLogIn = (state) =>({
     type: 'logIn',
-    tipo,
-    toggle,
-    password,
-    username
+    state
 })
 
