@@ -5,6 +5,7 @@ import CounterCont from '../containers/CounterCont'
 import ToDoListCont from '../containers/GestionePersonaleCont'
 import LogInCont from '../containers/LogInCont'
 import LogInStatusCont from '../containers/LogInStatusCont'
+import AsyncDataCont from '../containers/AsyncDataCont'
 
 export default class MenuComp extends Component {
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
@@ -65,6 +66,12 @@ export default class MenuComp extends Component {
                             onClick={this.handleItemClick}
                             as={Link} to='/LogInStatusCont'
                         />
+                        <Menu.Item
+                            name='AsyncDataCont'
+                            active={activeItem === 'AsyncDataCont'}
+                            onClick={this.handleItemClick}
+                            as={Link} to='/AsyncDataCont'
+                        />
                         <AdminOnlyTab />
 
                         <Menu.Menu position='right'>
@@ -81,6 +88,7 @@ export default class MenuComp extends Component {
                         <Route exact path="/ToDoListCont" component={ToDoListCont} />
                         <Route exact path="/LogInCont" component={LogInCont} />
                         <Route exact path="/LogInStatusCont" component={LogInStatusCont} />
+                        <Route exact path="/AsyncDataCont" component={AsyncDataCont} />
                     </Switch>
                 </div>
 
