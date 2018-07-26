@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { Button, Form, Grid } from 'semantic-ui-react'
 
-
-
 class LogInComp extends Component {
     constructor(props) {
         super(props);
@@ -71,14 +69,9 @@ class LogInComp extends Component {
 
         )
     }
-
-
-
 }
 LogInComp.propTypes = {
     ToggleLogIn: PropTypes.func.isRequired,
 }
-
-
 
 export { LogInComp };

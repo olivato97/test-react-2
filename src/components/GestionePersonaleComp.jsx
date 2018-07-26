@@ -77,7 +77,6 @@ class ToDoList extends Component {
                 <Grid centered>
                     <Grid.Row columns={4}>
                         <Card>
-
                             <Card.Content>
                                 <Input type='text'
                                     placeholder='username...'
