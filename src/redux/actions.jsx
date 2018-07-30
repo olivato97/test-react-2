@@ -6,14 +6,26 @@ export const decreseAction = () => ({
     type: 'decrese'
 })
 
-export const addToDoList = (text) => ({
-    type: 'ADD_TODO',
-    text
+export const addList = (tipo,username, password) => ({
+    type: 'AddMember',
+    tipo,
+    username,
+    password
 })
 
-export const ToggleLogIn = (text, toggle) =>({
+export const ToggleLogIn = (state) =>({
     type: 'logIn',
-    text,
-    toggle
+    state
 })
+
+export function loadCategories() {
+    return {
+      types: ['LOAD','AWESOME','OH_NO'],
+      payload: {
+        request:{
+          url:'/state'
+        }
+      }
+    }
+  }
 
