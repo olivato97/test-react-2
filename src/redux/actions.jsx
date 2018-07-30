@@ -18,3 +18,14 @@ export const ToggleLogIn = (state) =>({
     state
 })
 
+export function loadCategories() {
+    return {
+      types: ['LOAD','AWESOME','OH_NO'],
+      payload: {
+        request:{
+          url:'/state'
+        }
+      }
+    }
+  }
+

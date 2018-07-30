@@ -1,8 +1,15 @@
 import { connect } from 'react-redux'
 import GestionePersonaleComp from '../components/GestionePersonaleComp'
-import { addList,ToggleLogIn } from '../redux/actions'
+import { addList,ToggleLogIn,loadCategories } from '../redux/actions'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state,dispatch) => {
+debugger
+  Promise.all([
+    dispatch(loadCategories(state)),  
+  ]).then(() => {
+    dispatch(loadCategories(state)
+    )
+  })
   return {
     Member: state.LogIn,
     tipo: state.LogIn.tipo,

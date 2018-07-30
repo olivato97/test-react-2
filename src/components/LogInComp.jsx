@@ -17,7 +17,7 @@ class LogInComp extends Component {
 
     handleClickTrue() {
         const { Member, ToggleLogIn } = this.props
-
+        debugger
         var user = this.state.username
         var pass = this.state.password
         for (var i = 0; i < Member.length; i++) {
@@ -29,7 +29,9 @@ class LogInComp extends Component {
             }
         }
     }
+    
     handleClickFalse() {
+        
         const { ToggleLogIn } = this.props
         ToggleLogIn("ospite", false, this.state.username, this.state.password)
 
