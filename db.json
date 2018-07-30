@@ -1,0 +1,73 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 3,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "state": [
+    {
+      "id": "7e04a610-93f3-11e8-9a3e-27d0441d344e",
+      "username": "trer",
+      "password": "tertrrt",
+      "tipo": "admin",
+      "logIn": false
+    },
+    {
+      "id": "9099e1a0-93f3-11e8-bf9e-6d67d3930129",
+      "username": "uuy",
+      "password": "uyuy",
+      "tipo": "adminadminospite",
+      "logIn": false
+    },
+    {
+      "id": "9bfec060-93f3-11e8-a4a9-71ddb2374e3a",
+      "username": "hgfhgh",
+      "password": "ghfhgf",
+      "tipo": "admin",
+      "logIn": false
+    },
+    {
+      "id": "b8473310-93f3-11e8-bb0b-a9d8592be6da",
+      "username": "dsdsd",
+      "password": "dsdsds",
+      "tipo": "admin",
+      "logIn": false
+    },
+    {
+      "id": "bb87b810-93f3-11e8-bb0b-a9d8592be6da",
+      "username": "dsdsddsdsds",
+      "password": "dsdsds",
+      "tipo": "admin",
+      "logIn": false
+    },
+    {
+      "id": "c7e15710-93f3-11e8-bb0b-a9d8592be6da",
+      "username": "marco",
+      "password": "marco",
+      "tipo": "admin",
+      "logIn": false
+    }
+  ]
+}
