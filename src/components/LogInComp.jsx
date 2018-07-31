@@ -20,6 +20,7 @@ class LogInComp extends Component {
         debugger
         var user = this.state.username
         var pass = this.state.password
+        
         for (var i = 0; i < Member.length; i++) {
             if (user === Member[i].username && pass === Member[i].password) {
                 Member[i].username = user;

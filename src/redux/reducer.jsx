@@ -22,8 +22,11 @@ const counter = (state = { count: 0 }, action) => {
 const LogIn = (state = [], action) => {
     async function getData() {
         try {
+            var deferred = $.Deferred();
+            
             const response = await axios.get('http://localhost:3004/state')
-            return response;
+            deferred.resolve(response);
+            return deferred.promise();
 
         } catch (error) {
             console.log(error)
@@ -34,17 +37,17 @@ const LogIn = (state = [], action) => {
     switch (action.type) {
         case "logIn":
             debugger
-            axios.patch('http://localhost:3004/state?id' + action.IdMember, ...state, {
-                logIn: action.state
+        axios.patch('http://localhost:3004/state?id=' + action.IdMember, ...state, {
+            logIn: action.state
+        })
+            .then(function (response) {
+                console.log(response);
+                return action.state
             })
-                .then(function (response) {
-                    console.log(response);
-                    return action.state
-                })
-                .catch(function (error) {
-                    console.log(error);
-                })
-            return action.state
+            .catch(function (error) {
+                console.log(error);
+            })
+        return action.state
         case 'AddMember':
             debugger
             var IdMemberNew = uuidv1()
@@ -68,11 +71,13 @@ const LogIn = (state = [], action) => {
             ]
         default:
             debugger
-            getData().then(
-                function (val) {
+           getData(promesse)
+           .when(...promesse).done(function(...d){
                     console.log("resolve: ")
-                    state = val.data
+                    state = d.data
                     console.log(state)
+                    var ciao = action.payload
+            console.log(ciao)
                     return state
                 })
             debugger

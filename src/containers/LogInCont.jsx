@@ -15,6 +15,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         ToggleLogIn: (state) => dispatch(ToggleLogIn(state)),
+        // loadCategories:() => dispatch(loadCategories()),
     }
 }
 
