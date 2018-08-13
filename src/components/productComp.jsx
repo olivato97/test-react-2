@@ -7,18 +7,6 @@ export default class FetchDemo extends React.Component {
     }
 
     componentDidMount() {
-        debugger
-        // axios.get(`https://jsonplaceholder.typicode.com/posts`)
-
-        //     .then(res => {
-
-        //         const posts = res.data
-        //         this.setState({ posts });
-        //     });
-
-
-
-
         // Make a request for a user with a given ID
         axios.get(`http://localhost:3004/posts`)
             .then(res => {
@@ -40,24 +28,13 @@ export default class FetchDemo extends React.Component {
           })
           .catch(function (error) {
             console.log(error);
-          });
-        // async function getUser() {
-        //     try {
-        //       const response = await axios.get('http://localhost:3004/posts?id=4');
-        //       console.log(response);
-        //     } catch (error) {
-        //       console.error(error);
-        //     }
-        //   }
-
-        //   getUser()
+        });
 
     }
 
     render() {
         return (
             <div>
-                <h1>{`/r/${this.props.subreddit}`}</h1>
                 <ul>
                     {this.state.posts.map(post =>
                         <li key={post.id}>{post.title}</li>

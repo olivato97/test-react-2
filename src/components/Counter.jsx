@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-
+import { Button, Statistic, } from 'semantic-ui-react';
 class Counter extends Component {
     render() {
         const { value, onIncreaseClick, onDecresedClick } = this.props
         return (
             <div>
-                <b>{value}</b>
-                <button onClick={onIncreaseClick}>Increase</button>
-                <button onClick={onDecresedClick}>Decresed</button>
+                <Statistic>
+                    <Statistic.Value>{value}</Statistic.Value>
+                    <Statistic.Label>click</Statistic.Label>
+                </Statistic>
+                <Button onClick={onIncreaseClick}>Increase</Button>
+                <Button onClick={onDecresedClick}>Decresed</Button>
             </div>
         )
     }

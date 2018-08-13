@@ -3,8 +3,6 @@ import GestionePersonaleComp from '../components/GestionePersonaleComp'
 import { addList,ToggleLogIn } from '../redux/actions'
 
 const mapStateToProps = (state,dispatch) => {
-debugger
-
   return {
     Member: state.LogIn,
     tipo: state.LogIn.tipo,

@@ -61,12 +61,6 @@ export default class MenuComp extends Component {
                             as={Link} to='/ToDoListCont'
                         />
                         <Menu.Item
-                            name='LogInStatusCont'
-                            active={activeItem === 'LogInStatusCont'}
-                            onClick={this.handleItemClick}
-                            as={Link} to='/LogInStatusCont'
-                        />
-                        <Menu.Item
                             name='productCont'
                             active={activeItem === 'productCont'}
                             onClick={this.handleItemClick}

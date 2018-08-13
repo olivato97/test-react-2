@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { Button, Input, Dropdown, Grid, Card } from 'semantic-ui-react';
-// import { connect } from 'react-redux'
 
 class ToDoList extends Component {
     constructor(props) {

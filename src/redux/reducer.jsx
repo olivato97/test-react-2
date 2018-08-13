@@ -2,10 +2,6 @@ import { combineReducers } from 'redux'
 import uuidv1 from 'uuid/v1'
 import axios from 'axios';
 
-
-
-
-
 const counter = (state = { count: 0 }, action) => {
     const count = state.count
 
@@ -19,37 +15,40 @@ const counter = (state = { count: 0 }, action) => {
     }
 }
 
-const LogIn = (state = [], action) => {
+const LogIn = (state = [{
+    "id": "7e04a610-93f3-11e8-9a3e-27d0441d344e",
+    "username": "ospite",
+    "password": "1234",
+    "tipo": "ospite",
+    "logIn": false
+  },
+  {
+    "id": "9bfec060-93f3-11e8-a4a9-71ddb2374e3a",
+    "username": "admin",
+    "password": "admin",
+    "tipo": "admin",
+    "logIn": false
+  }], action) => {
     async function getData() {
-        try {
-            var deferred = $.Deferred();
-            
-            const response = await axios.get('http://localhost:3004/state')
-            deferred.resolve(response);
-            return deferred.promise();
+        const response = await axios.get('http://localhost:3004/state')
 
-        } catch (error) {
-            console.log(error)
-
-        }
-        return state
+        return response
     }
     switch (action.type) {
         case "logIn":
             debugger
-        axios.patch('http://localhost:3004/state?id=' + action.IdMember, ...state, {
-            logIn: action.state
-        })
-            .then(function (response) {
-                console.log(response);
-                return action.state
+            axios.patch('http://localhost:3004/state?id=' + action.IdMember, ...state, {
+                logIn: action.state
             })
-            .catch(function (error) {
-                console.log(error);
-            })
-        return action.state
+                .then(function (response) {
+                    console.log(response);
+                    return action.state
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+            return action.state
         case 'AddMember':
-            debugger
             var IdMemberNew = uuidv1()
 
             return [
@@ -70,21 +69,12 @@ const LogIn = (state = [], action) => {
 
             ]
         default:
-            debugger
-           getData(promesse)
-           .when(...promesse).done(function(...d){
-                    console.log("resolve: ")
-                    state = d.data
-                    console.log(state)
-                    var ciao = action.payload
-            console.log(ciao)
-                    return state
-                })
-            debugger
+            getData()
+            console.log("resolve: ")
             console.log(state)
+            var ciao = action.payload
+            console.log(ciao)
             return state
-
-
         // export default counter;
     }
 }
